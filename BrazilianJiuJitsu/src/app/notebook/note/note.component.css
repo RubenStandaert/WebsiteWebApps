@@ -1,0 +1,39 @@
+.note {
+    background-color: #B4C7E7;
+}
+
+img {
+    width: 250px;
+}
+
+.note_info {
+    float:left;
+    background-color: #DAE3F3;
+    padding: 5px 10px;
+}
+
+.note_info.name {
+    font-size: 26px;
+    text-align: center;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.note_info.details {
+    background-color: white;
+}
+
+.note_description {
+    float:left;
+    background-color: #DAE3F3;
+    padding: 5px 10px;
+}
+
+.note_description > textarea {
+    columns: 5;
+}
+
+.blue_border {
+    border: 1px solid;
+    border-color: #2F528F;
+}
