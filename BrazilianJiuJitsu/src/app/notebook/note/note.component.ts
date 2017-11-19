@@ -1,6 +1,6 @@
 import { Note } from './note.model'
 import { TechniqueType } from '../../enums/techniqueType.enum'
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-note',
@@ -10,12 +10,11 @@ import { Component, OnInit } from '@angular/core';
 
 export class NoteComponent implements OnInit {
 
-  note: Note;
-  counterName: string;
+  @Input() public note: Note;
+  public counterName: string;
 
-  constructor(note: Note) {
-    this.note = note;
-    switch(note.techniqueType)
+  constructor() {
+    switch(this.note.techniqueType)
     {
       case TechniqueType.ESCAPE: this.counterName = 'Escapes'; break;
       case TechniqueType.SUBMISSION: this.counterName = 'Taps'; break;
