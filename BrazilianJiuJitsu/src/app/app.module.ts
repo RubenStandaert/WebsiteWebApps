@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -17,7 +18,8 @@ import { NotebookModule } from './notebook/notebook.module'
   imports: [
     BrowserModule,
     NotebookModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

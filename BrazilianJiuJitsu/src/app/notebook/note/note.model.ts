@@ -22,6 +22,7 @@ export class Note {
             _id: this._id,
             name: this._name,
             description: this._description,
+            position: this.position,
             techniqueType: this._techniqueType,
             counter: this._counter
         };
@@ -69,5 +70,15 @@ export class Note {
     }
     set counter(counter: number) {
         this._counter = counter;
+    }
+
+    get counterName(): string {
+        switch(this.techniqueType)
+        {
+          case TechniqueType.ESCAPE: return 'Escapes';
+          case TechniqueType.SUBMISSION: return 'Taps';
+          case TechniqueType.SWEEP: return 'Sweeps';
+          case TechniqueType.TRANSITION: return 'Transitions';
+        }
     }
 }
