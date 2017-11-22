@@ -8,13 +8,15 @@ export class Note {
     private _position: Position;
     private _techniqueType: TechniqueType;
     private _counter: number;
+    private _image: String;
 
-    constructor(name: string, description: string, position: Position, techniqueType: TechniqueType, counter?: number) {
+    constructor(name: string, description: string, position: Position, techniqueType: TechniqueType, counter?: number, image?: string) {
         this._name = name;
         this._description = description;
         this._position = position;
         this._techniqueType = techniqueType;
         this._counter = counter || 0;
+        this._image = image || "http://keithmackay.com/images/picture.jpg";
     }
 
     toJSON() {
@@ -24,12 +26,44 @@ export class Note {
             description: this._description,
             position: this.position,
             techniqueType: this._techniqueType,
-            counter: this._counter
+            counter: this._counter,
+            image: this._image
         };
     }
 
     static fromJSON(json): Note {
-        const rec = new Note(json.name, json.description, json.position, json.techniqueType, json.counter);
+        var p: Position;
+        var tt: TechniqueType;
+        switch(json.position)
+        {
+            case "Bottom closed guard": p = Position.BOTTOM_CLOSED_GUARD; break;
+            case "Top closed guard": p = Position.TOP_CLOSED_GUARD; break;
+            case "Bottom open guard": p = Position.BOTTOM_OPEN_GUARD; break;
+            case "Top open guard": p = Position.TOP_OPEN_GUARD; break;
+            case "Top mount": p = Position.TOP_MOUNT; break;
+            case "Bottom mount": p = Position.BOTTOM_MOUNT; break;
+            case "Top side control": p = Position.TOP_SIDE_CONTROL; break;
+            case "Bottom side control": p = Position.BOTTOM_SIDE_CONTROL; break;
+            case "Standing": p = Position.STANDING; break;
+            case "Bottom butterfly": p = Position.BOTTOM_BUTTERFLY; break;
+            case "Top butterfly": p = Position.TOP_BUTTERFLY; break;
+            case "Bottom half guard": p = Position.BOTTOM_HALF_GUARD; break;
+            case "Top half guard": p = Position.TOP_HALF_GUARD; break;
+            case "Bottom north south": p = Position.BOTTOM_NORTH_SOUTH; break;
+            case "Top north south": p = Position.TOP_NORTH_SOUTH; break;
+            case "Back attack": p = Position.BACK_ATTACK; break;
+            case "Back defense": p = Position.BACK_DEFENSE; break;
+            case "Top turtle": p = Position.TOP_TURTLE; break;
+            case "Bottom turtle": p = Position.BOTTOM_TURTLE; break;
+        }
+        switch(json.techniqueType)
+        {
+            case "Submission": tt = TechniqueType.SUBMISSION; break;
+            case "Escape": tt = TechniqueType.ESCAPE; break;
+            case "Sweep": tt = TechniqueType.SWEEP; break;
+            case "Transition": tt = TechniqueType.TRANSITION; break;
+        }
+        const rec = new Note(json.name, json.description, p, tt, json.counter, json.image);
         rec._id = json._id;
         return rec;
     }
@@ -80,5 +114,13 @@ export class Note {
           case TechniqueType.SWEEP: return 'Sweeps';
           case TechniqueType.TRANSITION: return 'Transitions';
         }
+    }
+
+    get image(): String {
+        return this._image;
+    }
+
+    set image(image: String) {
+        this._image = image;
     }
 }

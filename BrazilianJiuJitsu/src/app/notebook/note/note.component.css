@@ -1,36 +1,49 @@
 .note {
     background-color: #B4C7E7;
+    height: 200px;
+    clear:both;
 }
 
 img {
     width: 250px;
+    height: 180px;
+    margin: 10px;
+    float: left;
 }
 
 .note_info {
     float:left;
     background-color: #DAE3F3;
-    padding: 5px 10px;
+    margin: 10px;
+    width: 200px;
+    height: 180px;
 }
 
-.note_info.name {
+.note_info > p.name {
     font-size: 26px;
     text-align: center;
     background-color: white;
-    margin-bottom: 5px;
+    margin: 5px;
 }
 
-.note_info.details {
+.note_info > div.details {
     background-color: white;
+    margin: 5px;
+}
+
+.note_info > div.details p {
+    margin-left: 5px;
 }
 
 .note_description {
-    float:left;
+    float: left;
     background-color: #DAE3F3;
-    padding: 5px 10px;
+    margin: 10px;
+    height: 180px;
 }
 
 .note_description > textarea {
-    columns: 5;
+    margin: 5px;
 }
 
 .blue_border {

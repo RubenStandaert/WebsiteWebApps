@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component'
-import { NotebookComponent } from '../notebook/notebook/notebook.component';
+import { HomeComponent } from '../home/home.component';
 
 const appRoutes: Routes = [
-    { path: 'notebook', component: NotebookComponent },
-    { path: '', redirectTo: 'notebook', pathMatch: 'full'},
+    { path: 'home', loadChildren: "../notebook/notebook.module.ts" },
+    { path: '', redirectTo: 'home', pathMatch: 'full'},
     { path: '**', component: PageNotFoundComponent}
   ];
 
   @NgModule({
     imports: [
-      RouterModule.forRoot(appRoutes)
+      //RouterModule.forRoot(appRoutes)
     ],
     declarations: [],
     exports: [

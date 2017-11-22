@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class NotebookDataService {
 
-  private _appUrl = 'http://localhost:4200/API/';
+  private _appUrl = 'http://localhost:4200/API';
 
   constructor(private http: Http) {
   }
@@ -21,7 +21,7 @@ export class NotebookDataService {
   // TO DO: get actual notebook by user and do actual http request
   notebookByID(ID : String) : Observable<Notebook> {
     return this.http.get(`${this._appUrl}/notebook/${ID}`)
-    .map(response => response.json().map(item => Notebook.fromJSON(item)));
+    .map(response => response.json()).map(item => Notebook.fromJSON(item));
   }
 
   addNoteToNotebook(note: Note, nb: Notebook): Observable<Note> {

@@ -17,10 +17,10 @@ export class NotebookComponent implements OnInit {
    }
 
   ngOnInit() {
+
   }
 
-  onNoteClick(NoteID) 
-  {
+  onNoteClick(NoteID) {
     // TO DO
     this.router.navigateByUrl('/wedstrijd-gegevens/' + NoteID);
   }

@@ -1,6 +1,4 @@
 <div id="{{note.id}}" class="note blue_border">
-  <img src="../../../assets/default.jpg">
-
   <div class="note_info blue_border">
     <p class="name blue_border">{{note.name}}</p>
     <div class="details blue_border">
@@ -10,7 +8,9 @@
     </div>
   </div>
 
+  <img class="blue_border" src="{{note.image}}">
+
   <div class="note_description blue_border">
-      <textarea>{{note_description}}</textarea>
+      <textarea rows=11>{{note_description}}</textarea>
   </div>
-</div>>
+</div>
