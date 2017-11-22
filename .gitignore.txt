@@ -1,1 +1,2 @@
 brazilianjiujitsubackend/node_modules/
+BrazilianJiuJitsu/node_modules/
