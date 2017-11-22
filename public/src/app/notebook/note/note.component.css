@@ -1,0 +1,52 @@
+.note {
+    background-color: #B4C7E7;
+    height: 200px;
+    clear:both;
+}
+
+img {
+    width: 250px;
+    height: 180px;
+    margin: 10px;
+    float: left;
+}
+
+.note_info {
+    float:left;
+    background-color: #DAE3F3;
+    margin: 10px;
+    width: 200px;
+    height: 180px;
+}
+
+.note_info > p.name {
+    font-size: 26px;
+    text-align: center;
+    background-color: white;
+    margin: 5px;
+}
+
+.note_info > div.details {
+    background-color: white;
+    margin: 5px;
+}
+
+.note_info > div.details p {
+    margin-left: 5px;
+}
+
+.note_description {
+    float: left;
+    background-color: #DAE3F3;
+    margin: 10px;
+    height: 180px;
+}
+
+.note_description > textarea {
+    margin: 5px;
+}
+
+.blue_border {
+    border: 1px solid;
+    border-color: #2F528F;
+}
