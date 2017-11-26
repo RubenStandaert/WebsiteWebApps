@@ -5,7 +5,8 @@ var NoteSchema = new mongoose.Schema({
     description : String,
     position : String,
     techniqueType : String,
-    counter : Number
+    counter : Number,
+    image : String
 });	
 
 var NotebookSchema = new mongoose.Schema({

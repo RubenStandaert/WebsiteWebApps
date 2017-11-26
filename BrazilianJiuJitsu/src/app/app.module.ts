@@ -22,7 +22,7 @@ import { HomeComponent } from './home/home.component';
     NotebookModule,
     AppRoutingModule,
     HttpModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

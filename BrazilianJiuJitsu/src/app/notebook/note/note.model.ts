@@ -8,7 +8,7 @@ export class Note {
     private _position: Position;
     private _techniqueType: TechniqueType;
     private _counter: number;
-    private _image: String;
+    private _image: string;
 
     constructor(name: string, description: string, position: Position, techniqueType: TechniqueType, counter?: number, image?: string) {
         this._name = name;
@@ -116,11 +116,11 @@ export class Note {
         }
     }
 
-    get image(): String {
+    get image(): string {
         return this._image;
     }
 
-    set image(image: String) {
+    set image(image: string) {
         this._image = image;
     }
 }
