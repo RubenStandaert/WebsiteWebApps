@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 // mongoose
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/jiujitsu', {  useMongoClient: true });
+mongoose.connect(process.env.database_name, {  useMongoClient: true });
 
 require('./models/Notebook');
 
