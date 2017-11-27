@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class NotebookDataService {
 
-  private _appUrl = 'http://localhost:4200/API';
+  private _appUrl = '/API';
 
   constructor(private http: Http) {
   }
