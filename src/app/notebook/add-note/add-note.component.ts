@@ -17,7 +17,7 @@ export class AddNoteComponent implements OnInit {
 
   @Input() public notebook : Notebook;
   @Output() public newNote = new EventEmitter<Note>();
-  private note: FormGroup;
+  public note: FormGroup;
   public readonly positions = [
                                 "Bottom closed guard",
                                 "Top closed guard",
