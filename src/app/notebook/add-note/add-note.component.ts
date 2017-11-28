@@ -1,7 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NotebookDataService } from '../../services/notebook-data.service'
-import { Position } from '../../enums/position.enum'
-import { TechniqueType } from '../../enums/techniqueType.enum'
 import { Note } from '../note/note.model'
 import { Notebook } from '../notebook.model'
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
@@ -16,7 +14,6 @@ import { Router } from '@angular/router';
 export class AddNoteComponent implements OnInit {
 
   @Input() public notebook : Notebook;
-  @Output() public newNote = new EventEmitter<Note>();
   public note: FormGroup;
   public readonly positions = [
                                 "Bottom closed guard",
@@ -46,7 +43,7 @@ export class AddNoteComponent implements OnInit {
                                       "Transition"
                                   ];
 
-  constructor(private fb: FormBuilder, private _notebookDataService: NotebookDataService, private _router: Router) { }
+  constructor(private fb: FormBuilder, private _notebookDataService: NotebookDataService) { }
 
   ngOnInit() {
     this.note = this.fb.group({
@@ -60,39 +57,12 @@ export class AddNoteComponent implements OnInit {
   }
 
   onSubmit() {
-    var p: Position;
-    var tt: TechniqueType;
-    switch(this.note.value.position)
+    if(this.note.valid)
     {
-        case "Bottom closed guard": p = Position.BOTTOM_CLOSED_GUARD; break;
-        case "Top closed guard": p = Position.TOP_CLOSED_GUARD; break;
-        case "Bottom open guard": p = Position.BOTTOM_OPEN_GUARD; break;
-        case "Top open guard": p = Position.TOP_OPEN_GUARD; break;
-        case "Top mount": p = Position.TOP_MOUNT; break;
-        case "Bottom mount": p = Position.BOTTOM_MOUNT; break;
-        case "Top side control": p = Position.TOP_SIDE_CONTROL; break;
-        case "Bottom side control": p = Position.BOTTOM_SIDE_CONTROL; break;
-        case "Standing": p = Position.STANDING; break;
-        case "Bottom butterfly": p = Position.BOTTOM_BUTTERFLY; break;
-        case "Top butterfly": p = Position.TOP_BUTTERFLY; break;
-        case "Bottom half guard": p = Position.BOTTOM_HALF_GUARD; break;
-        case "Top half guard": p = Position.TOP_HALF_GUARD; break;
-        case "Bottom north south": p = Position.BOTTOM_NORTH_SOUTH; break;
-        case "Top north south": p = Position.TOP_NORTH_SOUTH; break;
-        case "Back attack": p = Position.BACK_ATTACK; break;
-        case "Back defense": p = Position.BACK_DEFENSE; break;
-        case "Top turtle": p = Position.TOP_TURTLE; break;
-        case "Bottom turtle": p = Position.BOTTOM_TURTLE; break;
+      const note = new Note(this.note.value.name, this.note.value.description, this.note.value.position, this.note.value.techniqueType, this.note.value.counter, this.note.value.image);
+      this._notebookDataService.addNoteToNotebook(note, this.notebook).subscribe();
+      this.note.reset();
     }
-    switch(this.note.value.techniqueType)
-    {
-        case "Submission": tt = TechniqueType.SUBMISSION; break;
-        case "Escape": tt = TechniqueType.ESCAPE; break;
-        case "Sweep": tt = TechniqueType.SWEEP; break;
-        case "Transition": tt = TechniqueType.TRANSITION; break;
-    }
-    const note = new Note(this.note.value.name, this.note.value.description, p, tt, this.note.value.counter, this.note.value.image);
-    this._notebookDataService.addNoteToNotebook(note, this.notebook).subscribe();
-    this._router.navigate(['home']);
+    
     }
   }

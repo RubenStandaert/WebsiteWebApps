@@ -2,7 +2,6 @@ import { Notebook } from '../notebook/notebook.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { Route,  Router } from '@angular/router';
 import { NotebookDataService } from '../services/notebook-data.service'
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-home',
@@ -12,23 +11,17 @@ import { Observable } from 'rxjs/Observable';
 })
 export class HomeComponent implements OnInit {
 
-  private _notebook: Observable<Notebook>;
+  private _notebook: Notebook;
 
-  constructor(private _notebookDataService : NotebookDataService, private router: Router) {
+  constructor(private _notebookDataService : NotebookDataService) {
    }
 
   ngOnInit() {
     // TO DO: get correct ID by user
-    this._notebook = this._notebookDataService.notebookByID("5a130a2a34e45f3864f84778");
+    this._notebookDataService.notebookByID("5a130a2a34e45f3864f84778").subscribe(nb => this._notebook = nb);
   }
 
   get notebook() {
     return this._notebook;
   }
-
-  onNoteClick(NoteID) {
-    // TO DO
-    this.router.navigateByUrl('/wedstrijd-gegevens/' + NoteID);
-  }
-
 }

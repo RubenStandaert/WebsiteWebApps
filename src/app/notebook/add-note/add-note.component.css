@@ -1,3 +1,90 @@
 form {
-    margin-left: 325px;
+    margin-left: 315px;
+}
+
+h3 {
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+
+.note {
+    background-color: #B4C7E7;
+    height: 270px;
+    clear:both;
+    border-bottom-width: 3px; 
+    border-bottom-color: black;
+}
+
+button {
+    font-size: 20px;
+    margin-top: 230px;
+}
+
+.redText {
+    color:red;
+    font-size: 16px;
+}
+
+.img_column {
+    padding-top: 5px;
+    padding-left: 5px;
+    width: 250px;
+}
+
+.img_column textarea {
+    width: 90%;
+}
+.img_column label {
+    margin-left: 5px;
+}
+
+input {
+    margin-bottom: 5px;
+}
+
+select {
+    width: 173px;
+}
+
+textarea {
+    margin: 5px;
+}
+
+.note_info {
+    width: 200px;
+}
+
+.note_info, .img_column {
+    float:left;
+    background-color: #DAE3F3;
+    margin: 10px;
+    height: 250px;
+}
+
+div.name {
+    font-size: 20px;
+    text-align: center;
+    background-color: white;
+    margin: 5px;
+}
+
+.note_info > div.details {
+    background-color: white;
+    margin: 5px;
+}
+
+.note_info > div.details div {
+    margin-left: 5px;
+}
+
+.note_description {
+    float: left;
+    background-color: #DAE3F3;
+    margin: 10px;
+    height: 250px;
+}
+
+.blue_border {
+    border: 1px solid;
+    border-color: #2F528F;
 }

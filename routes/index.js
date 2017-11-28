@@ -51,7 +51,7 @@ router.delete('/API/notebook/:notebook', function(req, res, next) {
 
 // add a note to notebook
 router.post('/API/notebook/:notebook/notes/add', function(req, res, next) {
-    req.notebook.notes.push(req.body);
+    req.notebook.notes.unshift(req.body);
     req.notebook.save(function(err, rec) {
       if (err) return next(err);
       res.json(req.body);

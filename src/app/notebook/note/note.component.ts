@@ -1,5 +1,4 @@
 import { Note } from './note.model'
-import { TechniqueType } from '../../enums/techniqueType.enum'
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
