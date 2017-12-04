@@ -2,6 +2,8 @@ import { Notebook } from '../notebook/notebook.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { Route,  Router } from '@angular/router';
 import { NotebookDataService } from '../services/notebook-data.service'
+import { AuthenticationService } from '../services/authentication.service'
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-home',
@@ -11,17 +13,12 @@ import { NotebookDataService } from '../services/notebook-data.service'
 })
 export class HomeComponent implements OnInit {
 
-  private _notebook: Notebook;
+  public notebook: Observable<Notebook>;
 
-  constructor(private _notebookDataService : NotebookDataService) {
+  constructor(private _notebookDataService : NotebookDataService, private _authenticationService : AuthenticationService) {
    }
 
   ngOnInit() {
-    // TO DO: get correct ID by user
-    this._notebookDataService.notebookByID("5a130a2a34e45f3864f84778").subscribe(nb => this._notebook = nb);
-  }
-
-  get notebook() {
-    return this._notebook;
+    this.notebook = this._notebookDataService.notebookByID(this._authenticationService.notebookID);
   }
 }

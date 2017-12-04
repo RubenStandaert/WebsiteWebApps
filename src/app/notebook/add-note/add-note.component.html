@@ -1,49 +1,49 @@
 <form [formGroup]='note' (ngSubmit)='onSubmit()' class="note blue_border">
-  <div class="note_info blue_border">
-    <div class="name blue_border">
-        <!-- for verwijst naar input label id -->
-        <label for="name">Name:</label>
-        <div *ngIf='note.get("name").errors?.required && note.get("name").touched'>
-                <span class="redText">Name is required!</span>
-        </div>
-        <input type="text" id="name" formControlName='name' #spy>
-    </div>
-    <div class="details blue_border">
-        
-        <div>
-            <label for="position">Position:</label>
-            <div *ngIf='note.get("position").errors?.required && note.get("position").touched'>
-                <span class="redText">Position is required!</span>
+    <div class="note_info blue_border">
+        <div class="name blue_border">
+            <!-- for verwijst naar input label id -->
+            <label for="name">Name:</label>
+            <div *ngIf='note.get("name").errors?.required && note.get("name").touched'>
+                    <span class="redText">Name is required!</span>
             </div>
-            <select id="position" formControlName='position' #spy>
-                <option *ngFor='let position of positions' [value]='position'>{{position}}</option>
-            </select>
+            <input type="text" id="name" formControlName='name' #spy>
         </div>
-        <div>
-            <label for="techniqueType">Type:</label>
-            <div *ngIf='note.get("techniqueType").errors?.required && note.get("techniqueType").touched' >
-                    <span class="redText">Type is required!</span>
-            </div>
-            <select id="techniqueType" formControlName='techniqueType' #spy>
-                <option *ngFor='let techniqueType of techniqueTypes' [value]='techniqueType'>{{techniqueType}}</option>
-            </select>
-        </div>
-        <div>
-            <label for="counter">Successful executions:</label>
-            <div *ngIf='note.get("counter").errors?.required && note.get("counter").touched' >
-                    <span class="redText">Amount is required!</span>
+        <div class="details blue_border">
+            
+            <div>
+                <label for="position">Position:</label>
+                <div *ngIf='note.get("position").errors?.required && note.get("position").touched'>
+                    <span class="redText">Position is required!</span>
                 </div>
-            <input type="number" id="counter" formControlName='counter' #spy>
+                <select id="position" formControlName='position' #spy>
+                    <option *ngFor='let position of positions' [value]='position'>{{position}}</option>
+                </select>
+            </div>
+            <div>
+                <label for="techniqueType">Type:</label>
+                <div *ngIf='note.get("techniqueType").errors?.required && note.get("techniqueType").touched' >
+                        <span class="redText">Type is required!</span>
+                </div>
+                <select id="techniqueType" formControlName='techniqueType' #spy>
+                    <option *ngFor='let techniqueType of techniqueTypes' [value]='techniqueType'>{{techniqueType}}</option>
+                </select>
+            </div>
+            <div>
+                <label for="counter">Successful executions:</label>
+                <div *ngIf='note.get("counter").errors?.required && note.get("counter").touched' >
+                        <span class="redText">Amount is required!</span>
+                    </div>
+                <input type="number" id="counter" formControlName='counter' #spy>
+            </div>
+            
         </div>
-        
-    </div>
-    </div>
-    <div class="img_column">
-        <label for="image">URL to image:</label>
-        <textarea id="image" formControlName='image' rows=14></textarea>
-    </div>
-    <div class="note_description blue_border">
-            <textarea id="description" formControlName='description' rows=15></textarea>
         </div>
-  <button type='submit'>Add note</button>  
-</form>
+        <div class="img_column">
+            <label for="image">URL to image:</label>
+            <textarea id="image" formControlName='image' rows=14></textarea>
+        </div>
+        <div class="note_description blue_border">
+                <textarea id="description" formControlName='description' rows=15></textarea>
+            </div>
+    <button type='submit' [disabled]='!note.valid'>Add note</button>  
+    </form>

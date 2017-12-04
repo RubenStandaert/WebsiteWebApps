@@ -11,6 +11,14 @@ img {
     float: left;
 }
 
+button {
+    font-size: 20px;
+    margin-top: 162px;
+    width: 100px;
+    background-color: #F24330;
+    color:white;
+}
+
 .note_info {
     float:left;
     background-color: #DAE3F3;

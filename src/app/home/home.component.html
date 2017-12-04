@@ -1,2 +1,5 @@
-<app-add-note [notebook]='notebook'></app-add-note>
-<app-notebook [notebook]='notebook'></app-notebook>
+<app-navigation></app-navigation>
+<div *ngIf="notebook | async as notebook">
+    <app-add-note [notebook]='notebook'></app-add-note>
+    <app-notebook [notebook]='notebook'></app-notebook>
+</div>

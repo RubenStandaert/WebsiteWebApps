@@ -6,6 +6,7 @@ export class Note {
     private _techniqueType: string;
     private _counter: number;
     private _image: string;
+    private _date: Date;
 
     constructor(name: string, description: string, position: string, techniqueType: string, counter?: number, image?: string) {
         this._name = name;
@@ -14,6 +15,7 @@ export class Note {
         this._techniqueType = techniqueType;
         this._counter = counter || 0;
         this._image = image || "http://keithmackay.com/images/picture.jpg";
+        this._date = new Date();
     }
 
     toJSON() {
@@ -24,12 +26,15 @@ export class Note {
             position: this.position,
             techniqueType: this._techniqueType,
             counter: this._counter,
-            image: this._image
+            image: this._image,
+            date: this._date
         };
     }
 
     static fromJSON(json): Note {
+        console.log(json);
         const rec = new Note(json.name, json.description, json.position, json.techniqueType, json.counter, json.image);
+        rec._date = json.date;
         rec._id = json._id;
         return rec;
     }
@@ -78,5 +83,9 @@ export class Note {
 
     set image(image: string) {
         this._image = image;
+    }
+
+    get date(): Date {
+        return this._date;
     }
 }

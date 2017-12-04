@@ -1,0 +1,35 @@
+<div class="register">
+  <form [formGroup]='user' (ngSubmit)='onSubmit()'>
+    <h3>register new user</h3>
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" formControlName='username'>
+      <div class="redText" *ngIf=' user.get("username").errors?.required && user.get("username").touched'>
+        Username is required
+      </div>
+      <div class="redText" *ngIf='user.get("username").errors?.minlength && user.get("username").touched'>
+        Username should be at least {{user.get("username").errors?.minlength.requiredLength }} letters
+      </div>
+      <div class="redText" *ngIf='user.get("username").errors?.userAlreadyExists && user.get("username").touched'>
+        A user with that name already exists
+      </div>
+    </div>
+    <div formGroupName='passwordGroup'>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName='password'>
+        <div class="redText" *ngIf=' passwordControl.errors?.passwordTooShort && passwordControl.touched'>
+          Password should be at least {{passwordControl.errors?.passwordTooShort.requiredLength}} letters
+        </div>
+      </div>
+      <div>
+        <label for="confirmpassword">Ponfirm password:</label>
+        <input type="password" id="confirmpassword" formControlName='confirmPassword'>
+      </div>
+      <div class="redText" *ngIf=' user.get("passwordGroup").errors?.passwordsDiffer && user.get("passwordGroup").get("confirmPassword").touched  && user.get("passwordGroup").get("password").touched'>
+       Password and password confirmation should be equal
+      </div>
+    </div>
+    <button type='submit' [disabled]='!user.valid'>Register</button>
+  </form>
+</div>

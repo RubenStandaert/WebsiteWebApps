@@ -59,8 +59,10 @@ export class AddNoteComponent implements OnInit {
   onSubmit() {
     if(this.note.valid)
     {
-      const note = new Note(this.note.value.name, this.note.value.description, this.note.value.position, this.note.value.techniqueType, this.note.value.counter, this.note.value.image);
+      const note = new Note(this.note.value.name, this.note.value.description, this.note.value.position,
+         this.note.value.techniqueType, this.note.value.counter, this.note.value.image);
       this._notebookDataService.addNoteToNotebook(note, this.notebook).subscribe();
+      this.notebook.notes.unshift(note);
       this.note.reset();
     }
     

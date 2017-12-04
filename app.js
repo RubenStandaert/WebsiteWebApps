@@ -1,16 +1,22 @@
+require('dotenv').config({path: './app.env'})
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
 
 // mongoose
 var mongoose = require('mongoose');
-//mongoose.connect(process.env.database_name, {  useMongoClient: true });
-mongoose.connect('mongodb://localhost/jiujitsu', {  useMongoClient: true });
+mongoose.connect(process.env.database_name, {  useMongoClient: true });
+//mongoose.connect('mongodb://localhost/jiujitsu', {  useMongoClient: true });
 
 require('./models/Notebook');
+require('./models/User');
+require('./config/passport');
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -28,6 +34,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
 //app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);

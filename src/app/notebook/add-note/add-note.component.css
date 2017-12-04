@@ -18,6 +18,9 @@ h3 {
 button {
     font-size: 20px;
     margin-top: 230px;
+    width: 100px;
+    background-color: #27AE5F;
+    color: white;
 }
 
 .redText {

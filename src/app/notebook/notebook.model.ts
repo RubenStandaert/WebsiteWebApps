@@ -5,7 +5,7 @@ export class Notebook {
     private _notes: Note[];
 
     constructor(notes?: Note[]) {
-        this._notes = notes || new Array<Note>();
+        this._notes = notes || [];
     }
 
     toJSON() {
@@ -16,7 +16,7 @@ export class Notebook {
     }
 
     static fromJSON(json): Notebook {
-        const rec = new Notebook(json.notes);
+        const rec = new Notebook(json.notes.map(note => Note.fromJSON(note)));
         rec._id = json._id;
         return rec;
     }
@@ -26,6 +26,10 @@ export class Notebook {
     }
 
     get notes(): Note[] {
-        return this._notes;
+        return this._notes.sort((a, b) => a.date < b.date? 1 : -1);
+    }
+
+    set notes(notes: Note[]) {
+        this._notes = notes;
     }
 }
