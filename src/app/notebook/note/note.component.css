@@ -58,3 +58,9 @@ button {
     border: 1px solid;
     border-color: #2F528F;
 }
+
+@media screen and (min-width: 1500px) {
+    .note_description textarea {
+        width: 500px;
+    }
+}

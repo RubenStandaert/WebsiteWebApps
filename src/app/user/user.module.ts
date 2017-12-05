@@ -8,6 +8,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { AuthGuardService } from '../services/auth-guard.service';
 import { LogoutComponent } from './logout/logout.component';
 import { RouterModule } from '@angular/router';
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 const routes = [
   { path: 'login', component: LoginComponent },
@@ -26,7 +27,8 @@ const routes = [
   declarations: [
     LoginComponent,
     RegisterComponent,
-    LogoutComponent
+    LogoutComponent,
+    WelcomeComponent
   ],
   providers: [
     AuthenticationService,

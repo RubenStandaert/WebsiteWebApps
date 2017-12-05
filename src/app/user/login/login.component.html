@@ -1,16 +1,26 @@
-<div class="login">
-  <form [formGroup]='user' (ngSubmit)='onSubmit()'>
-    <h3>Login</h3>
-    <div>
-      <label for="username">Username:</label>
-      <input type="text" id="username" formControlName='username'>
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" formControlName='password'>
-    </div>
-    <button type='submit' [disabled]='!user.valid'>log in</button>
-    <div *ngIf='errorMsg'>{{errorMsg}}</div>
-  </form>
-  <a routerLink="/register" >Register</a>
+<div class="nav black_border">
+  <h1>J<span>i</span>u J<span>i</span>tsu Notes</h1>
+  <img src="../../assets/belt.png">
+  <div class="login">
+    <form [formGroup]='user' (ngSubmit)='onSubmit()'>
+      <h3>Log in</h3>
+      <div class="group">
+        <label for="username">Username:</label>
+        <br />
+        <input type="text" id="username" formControlName='username'>
+      </div>
+      <div class="group">
+        <label for="password">Password:</label>
+        <br />
+        <input type="password" id="password" formControlName='password'>
+      </div>
+      <div class="redText" *ngIf='errorMsg'>{{errorMsg}}</div>
+      <button type='submit' [disabled]='!user.valid'>Log in</button>
+      <br />
+      <a routerLink="/register" >Register</a>
+    </form>
+  </div>
+  
 </div>
+
+<app-welcome></app-welcome>
