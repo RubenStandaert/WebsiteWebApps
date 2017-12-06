@@ -33,6 +33,11 @@ export class NotebookDataService {
     return this.http.post(`${this._appUrl}/notebook/${nb.id}/notes/delete/${note.id}`,
      { headers: new Headers({Authorization: `Bearer ${this.auth.token}`}) }).map(res => res.json()).map(item => Notebook.fromJSON(item));
   }
+
+  clearNoteBook(nb: Notebook) {
+    return this.http.post(`${this._appUrl}/notebook/${nb.id}/notes/delete/`,
+     { headers: new Headers({Authorization: `Bearer ${this.auth.token}`}) }).map(res => res.json()).map(item => Notebook.fromJSON(item));
+ }
   
 
 }

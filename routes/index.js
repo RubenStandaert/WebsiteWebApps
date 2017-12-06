@@ -46,13 +46,21 @@ router.post('/API/notebook/:notebook/notes/add', auth, function(req, res, next) 
 
 // delete a note from notebook
 router.post('/API/notebook/:notebook/notes/delete/:noteid', function(req, res, next) {
-  console.log(req);
-  console.log("original id:" + req.params.noteid);
   const notebook = req.notebook;
   notebook.notes = notebook.notes.filter(function(note){
     console.log(note._id);
     return note._id != req.params.noteid;
   })
+  notebook.save( function (err) {
+    if (err) return next(err);
+    res.json(notebook);
+  })
+})
+
+// delete all notes from notebook
+router.post('/API/notebook/:notebook/notes/delete/', function(req, res, next) {
+  const notebook = req.notebook;
+  notebook.notes = [];
   notebook.save( function (err) {
     if (err) return next(err);
     res.json(notebook);

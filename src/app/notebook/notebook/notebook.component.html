@@ -1,5 +1,14 @@
 <ul>
-  <li *ngFor="let note of notebook.notes">
-    <app-note [note]='note' [notebook]='notebook'></app-note>
-  </li>
+  <div *ngIf="notebook.notes.length == 0; else hasNotes">
+    You don't have any notes yet. Add a note to get started!
+  </div>
+  <ng-template #hasNotes>
+      <li *ngFor="let note of notebook.notes">
+          <app-note [note]='note' [notebook]='notebook'></app-note>
+      </li>
+      <div class="blue">
+          <button (click)="clearNotebook()">Clear notebook</button>
+      </div>
+  </ng-template>
+  
 </ul>

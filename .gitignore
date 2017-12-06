@@ -41,5 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# app-secret
+# environments
 app.env
+app.env.spec

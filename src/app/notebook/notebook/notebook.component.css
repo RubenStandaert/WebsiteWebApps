@@ -2,3 +2,15 @@ ul {
     list-style-type: none;
     margin-left: 275px;
 }
+
+button {
+    margin-top: 15px;
+    font-size: 20px;
+    width: 180px;
+    background-color: #F24330;
+    color:white;
+}
+
+.blue {
+    background-color: #DAE3F3;
+}
