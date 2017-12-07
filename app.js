@@ -1,4 +1,5 @@
 require('dotenv').config({path: './app.env'})
+// require('dotenv').config({path: './app.env.spec'})
 
 var express = require('express');
 var path = require('path');

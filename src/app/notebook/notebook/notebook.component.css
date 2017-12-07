@@ -7,10 +7,21 @@ button {
     margin-top: 15px;
     font-size: 20px;
     width: 180px;
-    background-color: #F24330;
     color:white;
+}
+
+#clear {
+    background-color: #F24330;
+}
+
+#download {
+    background-color: #27AE5F;
 }
 
 .blue {
     background-color: #DAE3F3;
+}
+
+#invis {
+    display: none;
 }

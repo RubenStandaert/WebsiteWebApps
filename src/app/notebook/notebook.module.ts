@@ -7,7 +7,7 @@ import { NavigationComponent } from '../navigation/navigation.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AddNoteComponent } from './add-note/add-note.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { AuthGuardService } from '../services/auth-guard.service'
+import { AuthGuardService } from '../services/auth-guard.service';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [ AuthGuardService ], },
@@ -23,6 +23,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   declarations:
-   [HomeComponent, NotebookComponent, NoteComponent, AddNoteComponent, NavigationComponent,]
+   [HomeComponent, NotebookComponent, NoteComponent, AddNoteComponent, NavigationComponent]
 })
 export class NotebookModule { }

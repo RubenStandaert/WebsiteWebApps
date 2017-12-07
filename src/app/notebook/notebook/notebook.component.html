@@ -3,12 +3,13 @@
     You don't have any notes yet. Add a note to get started!
   </div>
   <ng-template #hasNotes>
-      <li *ngFor="let note of notebook.notes">
-          <app-note [note]='note' [notebook]='notebook'></app-note>
-      </li>
+      <div id="notes">
+            <li *ngFor="let note of notebook.notes">
+                    <app-note [note]='note' [notebook]='notebook'></app-note>
+                </li>
+      </div>
       <div class="blue">
-          <button (click)="clearNotebook()">Clear notebook</button>
+          <button id="clear" (click)="clearNotebook()">Clear notebook</button>
       </div>
   </ng-template>
-  
 </ul>

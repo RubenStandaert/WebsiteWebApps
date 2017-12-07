@@ -3,6 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Route,  Router } from '@angular/router';
 import { NotebookDataService } from '../../services/notebook-data.service'
 import { Subscription } from 'rxjs';
+import * as html2canvas from 'html2canvas';
+import * as jsPDF  from 'jspdf';
 
 @Component({
   selector: 'app-notebook',
