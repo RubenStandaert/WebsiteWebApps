@@ -20,12 +20,12 @@ router.param('notebook', function(req, res, next, id) {
 }); 
 
 // get all notebooks
-/*router.get('/API/notebooks/', auth, function(req, res, next) {
+router.get('/API/notebooks/', auth, function(req, res, next) {
   Notebook.find(function(err, notebooks) {
     if (err) { return next(err); }
     res.json(notebooks);
   });
-});*/
+});
 
 // get a notebook
 router.get('/API/notebook/:notebook', auth, function(req, res) {

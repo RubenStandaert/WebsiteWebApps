@@ -68,7 +68,7 @@ describe("server", () => {
                 data.status = response.statusCode;
                 data.body = body;
                 done();
-            }).auth(null, null, true, process.env.TEST_VALID_TOKEN);
+            }).auth(DummyPerson, DummyPassword, true, process.env.TEST_VALID_TOKEN);
         });
         it("status 200", () => {
             expect(data.status).toBe(200);
@@ -97,7 +97,7 @@ describe("server", () => {
                 data.status = response.statusCode;
                 data.body = body;
                 done();
-            }).auth(null, null, true, process.env.TEST_VALID_TOKEN);
+            }).auth(DummyPerson, DummyPassword, true, process.env.TEST_VALID_TOKEN);
         });
         it("status 200", () => {
             expect(data.status).toBe(200);
